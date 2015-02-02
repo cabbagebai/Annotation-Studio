@@ -11,6 +11,8 @@ class Ability
 
     if user.has_role? :admin
       can :manage, :all
+      can :make_public, Document
+      can :assign_to_public, Document
 
     elsif user.has_role? :teacher
       cannot :manage, Document do |tors|
